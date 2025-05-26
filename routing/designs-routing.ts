@@ -1,18 +1,15 @@
 import express, {Request, Response} from "express"
-
+import designsController from "../controller/designs-controller"
 const designsRouter = express.Router()
 
-designsRouter.get('/designs',  (req:Request, res:Response) => {
-    res.send({msg:'Getting all designs'})
-})
+designsRouter.route('/')
+.get(designsController.getAllDesigns)
+.post(designsController.createNewDesign)
 
-designsRouter.get('design/:id', (req:Request, res:Response) => {
-    const id = req.params.id;
-    res.send({msg:`Getting a design with the ID: ${id}`})
-})
+designsRouter.route('/:id')
+.get(designsController.getDesignById)
+.put(designsController.updateDesign)
+.delete(designsController.deleteDesign)
 
-designsRouter.post('/design', (req:Request, res:Response) => {
-    res.send({msg:"Creating a new design"})
-})
 
 export default (designsRouter)
