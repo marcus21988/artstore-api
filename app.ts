@@ -5,6 +5,8 @@ import dbConnection from "./common/db-connection"
 
 const app = express ()
 
+app.use(express.json())
+
 app.use('/designs', designsRouter)
 
 app.listen(4000, () => {

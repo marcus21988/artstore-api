@@ -1,27 +1,32 @@
 import express, {Request, Response} from "express"
 import designsService from "../service/designs-service"
 
-const getAllDesigns = (req: Request, res:Response) => {
-    res.send ({msg:`Getting all designs`})
+const getAllDesigns = async (req: Request, res:Response) => {
+    const data = await designsService.getAllDesigns()
+    res.send(data)
 }
 
-const getDesignById = (req:Request, res:Response) => {
+const getDesignById = async (req:Request, res:Response) => {
     const id = req.params.id;
-    res.send({msg:`Getting a desing with the ID: ${id}`})
+    const data = await designsService.getDesignById(parseInt(id))
+    res.send(data)
 }
 
-const createNewDesign = (req:Request, res:Response) => {
-    res.send({msg:`Creating a new design`})
+const createNewDesign = async (req:Request, res:Response) => {
+    const data = await designsService.createNewDesign(req.body)
+    res.send(data)
 }
 
-const updateDesign = (req:Request, res:Response) => {
+const updateDesign = async (req:Request, res:Response) => {
     const id = req.params.id;
-    res.send ({msg:`Updating a design with the ID: ${id}`})
+    const data = await designsService.updateDesign(parseInt(id), req.body)
+    res.send (data)
 }
 
-const deleteDesign = (req:Request, res:Response) => {
+const deleteDesign = async (req:Request, res:Response) => {
     const id = req.params.id;
-    res.send ({msg:`Deleting a design with the ID: ${id}`})
+    const data = await designsService.deleteDesign(parseInt(id))
+    res.send (data)
 }
 
 export default {getAllDesigns, getDesignById, createNewDesign, updateDesign, deleteDesign}
