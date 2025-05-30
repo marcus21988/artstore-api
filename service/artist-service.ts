@@ -24,6 +24,27 @@ const getArtistById = async (id:Number) => {
             biography: data[0].biography
         }
     }
+    return null
 }
 
-export default {getAllArtists, getArtistById}
+const createArtist = async (artist: any) => {
+    const data = await artistRepository.createArtist(artist)
+    return data
+}
+
+const updateArtist = async (artist:any) => {
+    const data = await artistRepository.updateArtist(artist)
+    return data
+}
+
+const deleteArtist = async (artistId: Number) => {
+    const data = await artistRepository.deleteArtist(artistId)
+    return data
+}
+
+const getDesignByAuthorId = async (artistId: Number) => {
+    const data = await artistRepository.getDesignByAuthorId(artistId)
+    return data
+}
+
+export default {getAllArtists, getArtistById, createArtist, updateArtist, deleteArtist, getDesignByAuthorId}
