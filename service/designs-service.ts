@@ -5,21 +5,58 @@ const getAllDesigns = async () => {
     const data = await designRepository.getAllDesigns()
     const result: any = []
 
-    data.forEach((design:any) => {
+    data.forEach((art:any) => {
         result.push({
-            id: design.id,
-            title: design.title,
-            artist: design.artist,
-            description: design.description,
-            published: design.published,
-            scoreTrending: design.scoreTrending,
-            scorePopular: design.scorePopular,
-            sales: design.sales,
-            availability: design.availability,
-            updated: design.updated,
-            created: design.created
+            // id: design.id,
+            // title: design.title,
+            // artist: design.artist,
+            // description: design.description,
+            // published: design.published,
+            // scoreTrending: design.scoreTrending,
+            // scorePopular: design.scorePopular,
+            // sales: design.sales,
+            // availability: design.availability,
+            // updated: design.updated,
+            // created: design.created
+            id: art.id,
+            title: art.title,
+            formatId: art.format_id,
+            stateId: art.state_id,
+            articleId: art.article_id,
+            sizeId: art.size_id,
+            artistId: art.artist_id,
+            datePublished: art.date_published,
+            ISBN: art.ISBN,
+            totalArtworks: art.total_artworks,
+            soldArtworks: art.sold_artworks,
+            reservedArtworks: art.reserved_artworks,
+            description: art.description
     })
     });
+    return result
+}
+
+const getAllDesignsDetailed = async () => {
+    const data = await designRepository.getAllDesignsDetailed()
+    const result: any = []
+
+    data.forEach((art:any) => {
+        result.push({
+            id: art.id,
+            title: art.title,
+            format: art.Format,
+            state: art.State,
+            article: art.Article,
+            size: art.Size,
+            artist: art.Artist,
+            datePublished: art.date_published,
+            ISBN: art.ISBN,
+            totalArtworks: art.total_artworks,
+            soldArtworks: art.sold_artworks,
+            reservedArtworks: art.reserved_artworks,
+            description: art.description
+        })
+    })
     return result
 }
 
@@ -58,4 +95,4 @@ const deleteDesign = async (id: Number) => {
 }
 
 
-export default {getAllDesigns, getDesignById, createNewDesign, updateDesign, deleteDesign}
+export default {getAllDesigns,getAllDesignsDetailed, getDesignById, createNewDesign, updateDesign, deleteDesign}

@@ -6,6 +6,11 @@ const getAllDesigns = async (req: Request, res:Response) => {
     res.send(data)
 }
 
+const getAllDesignsDetailed = async (req:Request, res:Response) => {
+    const data = await designsService.getAllDesignsDetailed()
+    res.send(data)
+}
+
 const getDesignById = async (req:Request, res:Response) => {
     const id = req.params.id;
     const data = await designsService.getDesignById(parseInt(id))
@@ -29,4 +34,4 @@ const deleteDesign = async (req:Request, res:Response) => {
     res.send (data)
 }
 
-export default {getAllDesigns, getDesignById, createNewDesign, updateDesign, deleteDesign}
+export default {getAllDesigns, getAllDesignsDetailed, getDesignById, createNewDesign, updateDesign, deleteDesign}

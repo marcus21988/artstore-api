@@ -3,7 +3,7 @@ import designsController from "../controller/designs-controller"
 const designsRouter = express.Router()
 
 designsRouter.route('/')
-.get(designsController.getAllDesigns)
+.get(designsController.getAllDesignsDetailed)
 .post(designsController.createNewDesign)
 
 designsRouter.route('/:id')
