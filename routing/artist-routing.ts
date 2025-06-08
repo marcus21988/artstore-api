@@ -9,12 +9,15 @@ artistRouter.route('/')
 
 artistRouter.route('/:id')
 .get(artistController.getArtistById)
-
-artistRouter.route('/:id/designs')
-.get(artistController.getDesignByAuthorId)
-
-artistRouter.route('/:fullName')
 .put(artistController.updateArtist)
 .delete(artistController.deleteArtist)
+
+artistRouter.route('/:id/designs')
+.get(artistController.getDesignByArtistId)
+
+
+// artistRouter.route('/:fullName')
+// .put(artistController.updateArtist)
+
 
 export default artistRouter

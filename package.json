@@ -9,7 +9,9 @@
   "author": "Marko",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.1",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "lodash": "^4.17.21",
     "mysql-upgrade": "^0.1.2",

@@ -32,8 +32,8 @@ const createArtist = async (artist: any) => {
     return data
 }
 
-const updateArtist = async (artist:any) => {
-    const data = await artistRepository.updateArtist(artist)
+const updateArtist = async (id:Number, artist:any) => {
+    const data = await artistRepository.updateArtist(id, artist)
     return data
 }
 
@@ -42,9 +42,9 @@ const deleteArtist = async (artistId: Number) => {
     return data
 }
 
-const getDesignByAuthorId = async (artistId: Number) => {
-    const data = await artistRepository.getDesignByAuthorId(artistId)
+const getDesignByArtistId = async (artistId: Number) => {
+    const data = await artistRepository.getDesignByArtistId(artistId)
     return data
 }
 
-export default {getAllArtists, getArtistById, createArtist, updateArtist, deleteArtist, getDesignByAuthorId}
+export default {getAllArtists, getArtistById, createArtist, updateArtist, deleteArtist, getDesignByArtistId}

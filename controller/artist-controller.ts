@@ -19,20 +19,21 @@ const createArtist = async (req:Request, res:Response) => {
 }
 
 const updateArtist = async (req:Request, res:Response) => {
-    const data = await artistService.updateArtist(req.body)
+    const id = req.params.id
+    const data = await artistService.updateArtist(parseInt(id), req.body)
     res.send(data)
 }
 
 const deleteArtist = async (req:Request, res:Response) => {
-    const {artistId} = req.body
-    const data = await artistService.deleteArtist(artistId)
+    const artistId = req.params.id
+    const data = await artistService.deleteArtist(parseInt(artistId))
     res.send(data)
 }
 
-const getDesignByAuthorId = async (req:Request, res:Response) => {
+const getDesignByArtistId = async (req:Request, res:Response) => {
     const {artistId} = req.body
-    const data = await artistService.getDesignByAuthorId(artistId)
+    const data = await artistService.getDesignByArtistId(artistId)
     res.send(data)
 }
 
-export default {getAllArtists, getArtistById, createArtist, updateArtist, deleteArtist, getDesignByAuthorId}
+export default {getAllArtists, getArtistById, createArtist, updateArtist, deleteArtist, getDesignByArtistId}

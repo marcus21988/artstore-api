@@ -3,10 +3,12 @@ import designsRouter from "./routing/designs-routing"
 import "reflect-metadata"
 import dbConnection from "./common/db-connection"
 import artistRouter from "./routing/artist-routing"
+import cors from "cors"
 
 const app = express ()
 
 app.use(express.json())
+app.use(cors())
 
 app.use('/artists', artistRouter)
 app.use('/designs', designsRouter)

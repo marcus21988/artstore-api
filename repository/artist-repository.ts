@@ -31,10 +31,10 @@ const createArtist = async (artist:any) => {
     }
 }
 
-const updateArtist = async (artist: any) => {
+const updateArtist = async (id:Number, artist: any) => {
     try {
         const data = await dbConnection.query(`UPDATE ArtistDetailed SET full_name = ?, biography = ?
-        WHERE id = ?`, [artist.full_name, artist.biography, artist.id])
+        WHERE id = ?`, [artist.full_name, artist.biography, id])
         return {success: true, data}
     }
     catch(error:any) {
@@ -52,7 +52,7 @@ const deleteArtist = async (artistId: Number) => {
     }
 }
 
-const getDesignByAuthorId = async (artistId:Number) => {
+const getDesignByArtistId = async (artistId:Number) => {
     try {
         const data = await dbConnection.query(`SELECT a.* FROM Art a JOIN ArtArtistDetailed aad ON a.id WHERE aad.ArtistDetailedId =?`, [artistId])
         return data
@@ -62,4 +62,4 @@ const getDesignByAuthorId = async (artistId:Number) => {
     }
 }
 
-export default {getAllArtists, getArtistById, createArtist, updateArtist, deleteArtist, getDesignByAuthorId}
+export default {getAllArtists, getArtistById, createArtist, updateArtist, deleteArtist, getDesignByArtistId}
