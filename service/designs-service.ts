@@ -30,7 +30,8 @@ const getAllDesigns = async () => {
             totalArtworks: art.total_artworks,
             soldArtworks: art.sold_artworks,
             reservedArtworks: art.reserved_artworks,
-            description: art.description
+            description: art.description,
+            imagePath: art.image_path
     })
     });
     return result
@@ -54,7 +55,8 @@ const getAllDesignsDetailed = async () => {
             totalArtworks: art.total_artworks,
             soldArtworks: art.sold_artworks,
             reservedArtworks: art.reserved_artworks,
-            description: art.description
+            description: art.description,
+            imagePath: art.image_path
         })
     })
     return result
@@ -80,7 +82,8 @@ const getDesignById = async (id: Number) => {
             scorePopular: data[0].scorePopular,
             sales: data[0].sales,
             updated: data[0].updated,
-            created: data[0].created
+            created: data[0].created,
+            imagePath: data[0].imagePath
         }
     }
     return null
